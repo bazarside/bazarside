@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — BazarSide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body class="contact-page">
+    <div class="container narrow">
+      <header class="brand">
+        <div class="logo">Bazar<span>Side</span></div>
+        <a class="back" href="index.html">← Home</a>
+      </header>
+
+      <section class="card">
+        <h2>Contact Us</h2>
+        <p class="lead">Have questions or want to collaborate? Send us a message and we'll get back shortly.</p>
+
+        <form id="contact-form" onsubmit="return handleContact(event)">
+          <label>
+            Name
+            <input id="name" type="text" required />
+          </label>
+          <label>
+            Email
+            <input id="cemail" type="email" required />
+          </label>
+          <label>
+            Message
+            <textarea id="message" rows="6" required></textarea>
+          </label>
+          <div class="actions">
+            <button class="btn" type="submit">Send Message</button>
+            <button class="btn ghost" type="button" onclick="location.href='index.html'">Cancel</button>
+          </div>
+        </form>
+
+        <div id="contact-result" class="result" aria-live="polite"></div>
+      </section>
+
+      <footer class="footer">© <span id="year-2"></span> BazarSide</footer>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
