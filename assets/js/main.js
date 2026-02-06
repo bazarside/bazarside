@@ -13,7 +13,7 @@ function handleNotify(e){
   // open mail client as a quick waitlist signup fallback
   const subject = encodeURIComponent('Waitlist signup — BazarSide');
   const body = encodeURIComponent('Please add me to the waitlist: ' + email);
-  window.location.href = `mailto:hello@bazarside.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:info.bazarside@gmail.com?subject=${subject}&body=${body}`;
   return false;
 }
 
@@ -25,7 +25,7 @@ function handleContact(e){
   if(!name||!email||!msg) return false;
   const subject = encodeURIComponent('Website contact from ' + name);
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
-  const mailto = `mailto:hello@bazarside.com?subject=${subject}&body=${body}`;
+  const mailto = `mailto:info.bazarside@gmail.com?subject=${subject}&body=${body}`;
   // open mail client, and show a friendly message
   window.location.href = mailto;
   const r = el('contact-result');
