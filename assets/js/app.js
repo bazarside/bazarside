@@ -143,6 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // CONTACT FORM HANDLING
 // ════════════════════════════════════════════════════════════════════════════
 
+// Where contact inquiries are delivered.
+// FormSubmit.co forwards submissions to this inbox with no backend or API key.
+// IMPORTANT: the FIRST time the form is submitted, FormSubmit emails this
+// address an activation link — click it once to start receiving messages.
+const CONTACT_EMAIL = 'info.bazarside@gmail.com'
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + CONTACT_EMAIL
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form')
   if (!form) return
@@ -180,18 +187,30 @@ document.addEventListener('DOMContentLoaded', () => {
     showStatus(status, 'Sending your inquiry...', 'busy')
 
     try {
-      // Submit to Formspree or your backend
-      // For GitHub Pages (no server), we'll log to console and show success
-      // In production, integrate with a service like:
-      // - Formspree (https://formspree.io/)
-      // - Basin (https://usebasin.com/)
-      // - Netlify Forms (if on Netlify)
-      // - Your own backend API
+      // Deliver via FormSubmit.co (no backend needed on GitHub Pages).
+      // These _-prefixed fields configure the email FormSubmit sends.
+      const payload = {
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        project_type: data.project_type,
+        message: data.message,
+        timeline: data.timeline,
+        page: data.url,
+        _subject: `New project inquiry from ${data.name} (${data.company})`,
+        _template: 'table',
+        _captcha: 'false',
+        _replyto: data.email,
+      }
 
-      console.log('Form submission:', data)
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      })
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 800))
+      if (!res.ok) throw new Error('Bad response ' + res.status)
 
       // Success
       showStatus(status, "✓ Thanks for reaching out! We'll be in touch within 24 hours.", 'ok')
@@ -199,13 +218,32 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = btnText
       btn.disabled = false
 
-      // Clear message after 5 seconds
+      // Clear message after 6 seconds
       setTimeout(() => {
         status.textContent = ''
         status.className = 'form__status'
-      }, 5000)
+      }, 6000)
     } catch (err) {
-      showStatus(status, 'Something went wrong. Please try again or email hello@bazarside.com', 'err')
+      // Network/service failure — fall back to the visitor's mail client so
+      // the inquiry still reaches us.
+      const subject = encodeURIComponent(`Project inquiry from ${data.name} (${data.company})`)
+      const body = encodeURIComponent(
+        `Name: ${data.name}\n` +
+          `Email: ${data.email}\n` +
+          `Company: ${data.company}\n` +
+          `Phone: ${data.phone || '—'}\n` +
+          `Project type: ${data.project_type}\n` +
+          `Timeline: ${data.timeline || '—'}\n\n` +
+          `${data.message}\n`
+      )
+      const mailto = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+
+      showStatus(
+        status,
+        'We couldn’t send that automatically — opening your email app so you can reach us directly.',
+        'err'
+      )
+      window.location.href = mailto
       btn.textContent = btnText
       btn.disabled = false
     }
