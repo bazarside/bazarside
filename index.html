@@ -1,41 +1,890 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>BazarSide — Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-  </head>
-  <body>
-    <main class="hero">
-      <div class="container">
-        <header class="brand">
-          <div class="logo">Bazar<span>Side</span></div>
-          <nav class="nav">
-            <a href="contact.html">Contact</a>
-          </nav>
-        </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="BazarSide Studio — craft boutique digital experiences. Web design, ecommerce, development." />
+  <meta name="theme-color" content="#07090e" media="(prefers-color-scheme: dark)" />
+  <title>BazarSide Studio — Digital Craft for Ambitious Brands</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@12..144&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* Animated logo inline to block FOUT */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+    .is-loading { animation: fadeIn 0.5s var(--ease) 0.3s both; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-        <section class="card">
-          <h1>We're launching soon</h1>
-          <p class="lead">A smarter way to explore local bazaars and vibrant markets — launching soon. Join our waitlist for early access.</p>
+  <!-- Topbar: limited message -->
+  <div class="topbar" role="complementary">
+    <div class="container">
+      <span>🎨 New: Check out our latest case studies below</span>
+    </div>
+  </div>
 
-          <form id="notify-form" class="notify" action="" onsubmit="return handleNotify(event)">
-            <input id="email" type="email" placeholder="Your email" required />
-            <button type="submit" class="btn">Notify Me</button>
-          </form>
+  <!-- Main header -->
+  <header class="header" data-sticky>
+    <div class="container">
+      <a href="index.html" class="logo is-loading">
+        <div class="logo__mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 4h12M4 10h16M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <span>Bazar<em>Side</em></span>
+      </a>
 
-          <div class="social">
-            <a href="#" aria-label="twitter">Twitter</a>
-            <a href="#" aria-label="instagram">Instagram</a>
-          </div>
-        </section>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Engage</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-        <footer class="footer">© <span id="year"></span> BazarSide — All rights reserved.</footer>
+      <div class="header__actions">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <a href="contact.html" class="btn btn--sm">Start Project</a>
+        <button class="burger icon-btn" aria-label="Toggle menu" data-burger>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
       </div>
-    </main>
+    </div>
+  </header>
 
-    <script src="assets/js/main.js"></script>
-  </body>
+  <!-- Mobile drawer -->
+  <div class="drawer" data-drawer>
+    <div class="drawer__top">
+      <span class="logo">
+        <div class="logo__mark" style="width: 26px; height: 26px;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 4h12M4 10h16M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+      </span>
+      <button class="icon-btn" data-burger>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="drawer__body">
+      <a href="#work" class="drawer__link">Work<span>Portfolio</span></a>
+      <a href="#services" class="drawer__link">Services<span>Offerings</span></a>
+      <a href="#process" class="drawer__link">Process<span>How we work</span></a>
+      <a href="#pricing" class="drawer__link">Engage<span>Work with us</span></a>
+      <a href="contact.html" class="drawer__link">Contact<span>Let's talk</span></a>
+    </div>
+    <div class="drawer__foot">
+      <a href="contact.html" class="btn btn--block">Start Project</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ═════════════════════════════════════════════════════════════════════
+         HERO
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div data-reveal style="--d: 0ms">
+            <span class="eyebrow">Digital Craft Studio</span>
+            <h1 class="h-xl">Unforgettable digital experiences for ambitious brands</h1>
+            <p class="lead">We design and build bespoke web platforms, ecommerce ecosystems, and digital tools that connect directly to your customers' hearts. From concept to production, every pixel serves purpose.</p>
+            <div class="hero__cta">
+              <a href="#work" class="btn">See Our Work</a>
+              <a href="contact.html" class="btn btn--ghost">Let's Collaborate</a>
+            </div>
+            <div class="hero__trust">
+              <div>
+                <strong>15+</strong>
+                <span>Live Projects</span>
+              </div>
+              <div>
+                <strong>8yrs</strong>
+                <span>Industry Experience</span>
+              </div>
+              <div>
+                <strong>100%</strong>
+                <span>Client Satisfaction</span>
+              </div>
+            </div>
+          </div>
+          <div class="stage" data-reveal style="--d: 200ms">
+            <div class="stage__glow"></div>
+            <div class="panel panel--main">
+              <div class="chrome">
+                <i></i>
+                <i></i>
+                <i></i>
+                <span>bazarside.com</span>
+              </div>
+              <div class="code">
+                <b>const</b> <s>craftExperience</s> <b>=</b> (<s>brand</s>) <b>⇒</b> {<br />
+                &nbsp;&nbsp;<u>return</u> <s>pixelPerfect</s>(<s>impact</s>);<br />
+                };
+              </div>
+            </div>
+            <div class="panel panel--side">
+              <div class="chrome">
+                <i></i>
+                <i></i>
+                <i></i>
+                <span>analytics.bazarside.com</span>
+              </div>
+              <div class="metric">
+                <div class="metric__top">
+                  <span>Conversion</span>
+                  <span style="opacity: 0.5;">↑ 34%</span>
+                </div>
+                <div class="metric__val">47.3<em>%</em></div>
+                <div class="bars">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+            </div>
+            <div class="badge-float badge-float--tl">
+              <span class="dot"></span>
+              Agency-Grade
+            </div>
+            <div class="badge-float badge-float--br">
+              <span class="dot"></span>
+              Ship-Ready
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee: social proof -->
+    <section class="marquee" data-reveal style="--d: 100ms">
+      <div class="marquee__track">
+        <span class="marquee__item">Ecommerce Excellence</span>
+        <span class="marquee__item">Performance Obsessed</span>
+        <span class="marquee__item">Brand Storytelling</span>
+        <span class="marquee__item">Conversion Engineered</span>
+        <span class="marquee__item">Ecommerce Excellence</span>
+        <span class="marquee__item">Performance Obsessed</span>
+        <span class="marquee__item">Brand Storytelling</span>
+        <span class="marquee__item">Conversion Engineered</span>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         PORTFOLIO / WORK
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Our Portfolio</span>
+            <h2 class="h-lg">Selected projects we're proud of</h2>
+            <p class="lead">Each project is a collaboration—born from your goals, refined through our expertise, launched with impact.</p>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <button aria-pressed="true" data-filter="all">All Projects</button>
+          <button data-filter="ecommerce">Ecommerce</button>
+          <button data-filter="brand">Brand Sites</button>
+          <button data-filter="tools">Digital Tools</button>
+        </div>
+
+        <!-- Portfolio grid -->
+        <div class="work-grid work-grid--2">
+          <!-- Bazarside Ecommerce -->
+          <article class="work" data-work="ecommerce" data-reveal style="--d: 0ms">
+            <div class="work__media" style="--p-a: #2b1f4f; --p-b: #1a1227; --p-accent: #ff7a59;">
+              <div class="work__frame">
+                <div class="mock">
+                  <div class="mock__bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="mock__hero"></div>
+                  <div class="mock__row">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="mock__lines">
+                    <i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work__body">
+              <div class="work__meta">
+                <b>BazarSide</b> • Our Flagship Product
+              </div>
+              <h3 class="h-sm">Marketplace for Local Bazaar Vendors</h3>
+              <p>Our own multi-vendor ecommerce platform connecting local bazaar artisans to global customers. Features live vendor profiles, product curation, and real-time inventory sync — designed, built, and run in-house.</p>
+              <div class="work__foot">
+                <div class="work__tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Supabase</span>
+                  <span class="tag">Node</span>
+                </div>
+                <div class="work__result">✦ 40% faster checkout</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bankibites -->
+          <article class="work" data-work="ecommerce" data-reveal style="--d: 100ms">
+            <div class="work__media" style="--p-a: #3d2c1f; --p-b: #1a0f05; --p-accent: #ffc978;">
+              <div class="work__frame">
+                <div class="mock">
+                  <div class="mock__bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="mock__hero"></div>
+                  <div class="mock__row">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="mock__lines">
+                    <i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work__body">
+              <div class="work__meta">
+                <b>Bankibites</b> • Food & Beverage
+              </div>
+              <h3 class="h-sm">Gourmet Bites Subscription & Retail</h3>
+              <p>Premium food and beverage discovery platform with subscription tiers, corporate gifting, and personalized recommendations. Integrated with production scheduling and logistics.</p>
+              <div class="work__foot">
+                <div class="work__tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Algolia</span>
+                </div>
+                <div class="work__result">✦ 2.3x repeat orders</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Brand Site: TechFlow Studio -->
+          <article class="work" data-work="brand" data-reveal style="--d: 200ms">
+            <div class="work__media" style="--p-a: #1f3a4f; --p-b: #0a1419; --p-accent: #52e0b8;">
+              <div class="work__frame">
+                <div class="mock">
+                  <div class="mock__bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="mock__hero"></div>
+                  <div class="mock__row">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="mock__lines">
+                    <i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work__body">
+              <div class="work__meta">
+                <b>TechFlow Studio</b> • Design Agency
+              </div>
+              <h3 class="h-sm">Design Studio Portfolio & Case Studies</h3>
+              <p>Elegant portfolio site showcasing design work, testimonials, and a client intake system. Custom CMS for project updates with animated case study transitions.</p>
+              <div class="work__foot">
+                <div class="work__tags">
+                  <span class="tag">Nuxt</span>
+                  <span class="tag">TinaCMS</span>
+                  <span class="tag">Cloudinary</span>
+                </div>
+                <div class="work__result">✦ 300% lead increase</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tools: Analytics Dashboard -->
+          <article class="work" data-work="tools" data-reveal style="--d: 300ms">
+            <div class="work__media" style="--p-a: #2f1f3f; --p-b: #140a1a; --p-accent: #ff7a59;">
+              <div class="work__frame">
+                <div class="mock">
+                  <div class="mock__bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="mock__hero"></div>
+                  <div class="mock__row">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="mock__lines">
+                    <i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work__body">
+              <div class="work__meta">
+                <b>Analytics Copilot</b> • SaaS Tool
+              </div>
+              <h3 class="h-sm">Real-Time Performance Dashboard</h3>
+              <p>Comprehensive analytics suite for ecommerce brands. Tracks conversion funnels, cohort analysis, and customer lifetime value with AI-powered insights and alerts.</p>
+              <div class="work__foot">
+                <div class="work__tags">
+                  <span class="tag">Vue.js</span>
+                  <span class="tag">WebSocket</span>
+                  <span class="tag">D3.js</span>
+                </div>
+                <div class="work__result">✦ 50k+ users</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Brand: Luxury Goods -->
+          <article class="work" data-work="brand ecommerce" data-reveal style="--d: 400ms">
+            <div class="work__media" style="--p-a: #3a2520; --p-b: #1c0f08; --p-accent: #ffc978;">
+              <div class="work__frame">
+                <div class="mock">
+                  <div class="mock__bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="mock__hero"></div>
+                  <div class="mock__row">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="mock__lines">
+                    <i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work__body">
+              <div class="work__meta">
+                <b>Lumière Goods</b> • Luxury Retail
+              </div>
+              <h3 class="h-sm">Premium Artisan Goods Platform</h3>
+              <p>Curated marketplace for artisan crafted goods. Storytelling-first design with lookbooks, artist interviews, and bespoke ordering workflow.</p>
+              <div class="work__foot">
+                <div class="work__tags">
+                  <span class="tag">Astro</span>
+                  <span class="tag">Commerce.js</span>
+                  <span class="tag">Figma API</span>
+                </div>
+                <div class="work__result">✦ 2.5x conversion rate</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tools: CMS Template -->
+          <article class="work" data-work="tools" data-reveal style="--d: 500ms">
+            <div class="work__media" style="--p-a: #1f2840; --p-b: #0b1018; --p-accent: #52e0b8;">
+              <div class="work__frame">
+                <div class="mock">
+                  <div class="mock__bar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="mock__hero"></div>
+                  <div class="mock__row">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="mock__lines">
+                    <i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work__body">
+              <div class="work__meta">
+                <b>ContentFlow</b> • Headless CMS
+              </div>
+              <h3 class="h-sm">Lightweight Headless Publishing System</h3>
+              <p>Git-backed CMS for technical teams. Version control, collaboration UI, and multi-channel publishing to web, email, and social.</p>
+              <div class="work__foot">
+                <div class="work__tags">
+                  <span class="tag">SvelteKit</span>
+                  <span class="tag">GitHub API</span>
+                  <span class="tag">Markdown</span>
+                </div>
+                <div class="work__result">✦ 2k+ forks (OSS)</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         SERVICES (Bento)
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">What We Do</span>
+            <h2 class="h-lg">Complete digital solutions, one studio</h2>
+          </div>
+        </div>
+
+        <div class="bento">
+          <!-- Ecommerce -->
+          <div class="svc svc--wide svc--feature">
+            <div>
+              <div class="svc__icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 2L6 6H3V18C3 18.5304 3.21071 19.0391 3.58579 19.4142C3.96086 19.7893 4.46957 20 5 20H19C19.5304 20 20.0391 19.7893 20.4142 19.4142C20.7893 19.0391 21 18.5304 21 18V6H18L15 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </div>
+              <h3 class="h-sm">Ecommerce Platforms</h3>
+              <p>Full-stack ecommerce solutions from vendor marketplaces to luxury retail. We handle store design, payment integration, inventory sync, and fulfillment workflows.</p>
+              <ul class="svc__list">
+                <li>Multi-vendor markets</li>
+                <li>Subscription commerce</li>
+                <li>Personalization</li>
+                <li>Payment & fulfillment</li>
+              </ul>
+            </div>
+            <div class="svc__stats">
+              <div>
+                <strong>40+</strong>
+                <span>Stores Launched</span>
+              </div>
+              <div>
+                <strong>99.9%</strong>
+                <span>Uptime Delivered</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand Design -->
+          <div class="svc">
+            <div class="svc__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" />
+                <path d="M3 9H21" stroke="currentColor" stroke-width="1.5" />
+                <path d="M9 3V21" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+            </div>
+            <h3 class="h-sm">Brand & Design</h3>
+            <p>Strategic web design that tells your brand's story. Animations, micro-interactions, and visual systems that engage.</p>
+            <ul class="svc__list">
+              <li>Web design</li>
+              <li>UI/UX audit</li>
+              <li>Animations</li>
+              <li>Design systems</li>
+            </ul>
+          </div>
+
+          <!-- Performance -->
+          <div class="svc">
+            <div class="svc__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <polyline points="17 6 23 6 23 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="h-sm">Performance</h3>
+            <p>Core Web Vitals optimization, image delivery, and conversion-tuned infrastructure. Every millisecond counts.</p>
+            <ul class="svc__list">
+              <li>Load time audit</li>
+              <li>Image optimization</li>
+              <li>CDN setup</li>
+              <li>Conversion tuning</li>
+            </ul>
+          </div>
+
+          <!-- Development -->
+          <div class="svc">
+            <div class="svc__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="h-sm">Full-Stack Dev</h3>
+            <p>Production-ready code built with modern tech stacks. React, Vue, Next.js, serverless, and beyond.</p>
+            <ul class="svc__list">
+              <li>Frontend crafting</li>
+              <li>API design</li>
+              <li>Database architecture</li>
+              <li>Infrastructure</li>
+            </ul>
+          </div>
+
+          <!-- Analytics -->
+          <div class="svc">
+            <div class="svc__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="3" y1="22" x2="21" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M5 18V8C5 6.89543 5.89543 6 7 6C8.10457 6 9 6.89543 9 8V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M15 18V2C15 1.44772 15.4477 1 16 1C16.5523 1 17 1.44772 17 2V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M10 18V12C10 11.4477 10.4477 11 11 11C11.5523 11 12 11.4477 12 12V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="h-sm">Data & Analytics</h3>
+            <p>Conversion funnel analysis, cohort tracking, and customer intelligence dashboards that inform strategy.</p>
+            <ul class="svc__list">
+              <li>Analytics setup</li>
+              <li>Dashboards</li>
+              <li>Custom events</li>
+              <li>A/B testing</li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="svc">
+            <div class="svc__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 11.5A8.5 8.5 0 118.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <polyline points="21 3 12 12 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="h-sm">Ongoing Support</h3>
+            <p>Maintenance, feature development, and scaling as your business grows. We're here for the long game.</p>
+            <ul class="svc__list">
+              <li>Monthly support</li>
+              <li>Bug fixes</li>
+              <li>Feature sprints</li>
+              <li>Scaling ops</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         PROCESS
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">How We Work</span>
+            <h2 class="h-lg">Our 5-phase approach</h2>
+            <p class="lead">From discovery to launch and beyond, we follow a proven process that keeps your project on track and on scope.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step" data-reveal style="--d: 0ms">
+            <h3>Discovery</h3>
+            <p>We immerse ourselves in your market, competitors, and customer. Workshops, interviews, and strategic briefs set the foundation.</p>
+            <span class="pill">Weeks 1–2</span>
+          </div>
+
+          <div class="step" data-reveal style="--d: 100ms">
+            <h3>Strategy & Design</h3>
+            <p>Wireframes, user flows, and high-fidelity mockups. We iterate with you until the vision is crystal clear.</p>
+            <span class="pill">Weeks 3–4</span>
+          </div>
+
+          <div class="step" data-reveal style="--d: 200ms">
+            <h3>Development</h3>
+            <p>Clean, production-ready code. Daily standups, weekly demos, and continuous integration keep us aligned.</p>
+            <span class="pill">Weeks 5–10</span>
+          </div>
+
+          <div class="step" data-reveal style="--d: 300ms">
+            <h3>Testing & Polish</h3>
+            <p>QA, performance tuning, security audit, and final design refinements. Everything pixel-perfect.</p>
+            <span class="pill">Weeks 11–12</span>
+          </div>
+
+          <div class="step" data-reveal style="--d: 400ms">
+            <h3>Launch & Beyond</h3>
+            <p>Go-live support, monitoring, and ongoing optimization. We measure success and iterate.</p>
+            <span class="pill">Month 4+</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         STATS
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="stats">
+          <div data-reveal style="--d: 0ms">
+            <strong>40+</strong>
+            <span>Projects Shipped</span>
+          </div>
+          <div data-reveal style="--d: 100ms">
+            <strong>15+</strong>
+            <span>Industries Served</span>
+          </div>
+          <div data-reveal style="--d: 200ms">
+            <strong>98%</strong>
+            <span>On-Time Delivery</span>
+          </div>
+          <div data-reveal style="--d: 300ms">
+            <strong>4.9★</strong>
+            <span>Client Rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         PRICING / PLANS
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">How We Engage</span>
+            <h2 class="h-lg">Ways to work with us</h2>
+            <p class="lead">Every project is scoped to your goals, so we shape the engagement around what you need. Here's how teams typically partner with us — share your brief and we'll propose the right fit.</p>
+          </div>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Launch Sprint -->
+          <div class="plan" data-reveal style="--d: 0ms">
+            <h3>Launch Sprint</h3>
+            <div class="plan__price">
+              Brand Site
+              <small>for early-stage teams</small>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--ink-dim); margin-top: 0.5rem;">Get to market fast with a focused marketing site that tells your story.</p>
+            <ul>
+              <li>5–8 page brand site</li>
+              <li>Responsive, mobile-first design</li>
+              <li>CMS integration</li>
+              <li>SEO &amp; performance pass</li>
+              <li>2 rounds of revisions</li>
+              <li>Launch &amp; handover support</li>
+            </ul>
+            <a href="contact.html" class="btn btn--block">Get Started</a>
+          </div>
+
+          <!-- Full Build (best) -->
+          <div class="plan plan--best" data-reveal style="--d: 100ms">
+            <span class="plan__tag" style="background: var(--coral); color: var(--on-accent); padding: 0.3rem 0.7rem; border-radius: var(--r-pill); font-size: 0.7rem; font-weight: 600;">MOST COMMON</span>
+            <h3>Full Build</h3>
+            <div class="plan__price">
+              Ecommerce
+              <small>design + build, end to end</small>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--ink-dim); margin-top: 0.5rem;">Our most common engagement: a full-featured store or product, shipped to production.</p>
+            <ul>
+              <li>Custom ecommerce storefront</li>
+              <li>Payment &amp; checkout integration</li>
+              <li>Admin dashboard</li>
+              <li>Email &amp; marketing setup</li>
+              <li>Analytics &amp; tracking</li>
+              <li>Iterative sprints with demos</li>
+              <li>Extended launch support</li>
+            </ul>
+            <a href="contact.html" class="btn btn--block">Start Project</a>
+          </div>
+
+          <!-- Dedicated Partner -->
+          <div class="plan" data-reveal style="--d: 200ms">
+            <h3>Dedicated Partner</h3>
+            <div class="plan__price">
+              Platform
+              <small>marketplaces &amp; SaaS</small>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--ink-dim); margin-top: 0.5rem;">For multi-vendor marketplaces, SaaS products, and complex integrations.</p>
+            <ul>
+              <li>Open scope &amp; roadmap</li>
+              <li>Custom infrastructure</li>
+              <li>API &amp; third-party integrations</li>
+              <li>Dedicated PM &amp; design lead</li>
+              <li>Continuous delivery</li>
+              <li>Ongoing partnership option</li>
+            </ul>
+            <a href="contact.html" class="btn btn--block">Let's Talk</a>
+          </div>
+        </div>
+
+        <div style="margin-top: 3.5rem; text-align: center;">
+          <p style="color: var(--ink-mute); font-size: 0.92rem;">
+            Every engagement includes deployment, SSL, performance optimization, and responsive mobile design. Timelines and scope are tailored to each project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         FAQ
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <div class="section-head" style="margin-bottom: 2.5rem;">
+          <div>
+            <span class="eyebrow">Questions?</span>
+            <h2 class="h-lg">Frequently asked</h2>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details data-reveal style="--d: 0ms">
+            <summary>What's your typical project timeline?</summary>
+            <div class="faq__body">
+              <p>Most projects take 8–14 weeks from kickoff to launch, depending on scope and complexity. We break work into 2-week sprints so you can see progress every two weeks. Custom timelines are available for rush projects or phased launches.</p>
+            </div>
+          </details>
+
+          <details data-reveal style="--d: 100ms">
+            <summary>Do you work with existing platforms like Shopify or WooCommerce?</summary>
+            <div class="faq__body">
+              <p>We can, but we typically recommend custom-built solutions for ambitious brands. Custom gives you more flexibility, better performance, and full ownership of your tech. That said, we're pragmatic—if Shopify fits your needs, we'll set it up beautifully.</p>
+            </div>
+          </details>
+
+          <details data-reveal style="--d: 200ms">
+            <summary>What happens after launch?</summary>
+            <div class="faq__body">
+              <p>Every engagement includes post-launch support. After that, many clients continue with a monthly support retainer for ongoing feature development, maintenance, and analytics optimization. It's optional — you're never locked in.</p>
+            </div>
+          </details>
+
+          <details data-reveal style="--d: 300ms">
+            <summary>How do you approach responsive design?</summary>
+            <div class="faq__body">
+              <p>Mobile-first. Every site we build is designed for phones, tablets, and desktops. We test on real devices, not just browsers. Performance is especially critical on mobile—we obsess over load times and interaction responsiveness.</p>
+            </div>
+          </details>
+
+          <details data-reveal style="--d: 400ms">
+            <summary>Can you help with content strategy and SEO?</summary>
+            <div class="faq__body">
+              <p>Yes. We work with copywriters, content strategists, and SEO experts as needed. Most projects include on-page SEO (meta tags, structured data, Core Web Vitals optimization). For full content strategy, we partner with specialists or recommend resources.</p>
+            </div>
+          </details>
+
+          <details data-reveal style="--d: 500ms">
+            <summary>What if I need to scale later?</summary>
+            <div class="faq__body">
+              <p>By design, all our projects are built to scale. Database architecture, API design, and infrastructure are all planned for growth. As you hit growth milestones, we can add features, increase capacity, and optimize costs—no major rewrites needed.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+         FINAL CTA
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="cta">
+          <h2 class="h-lg">Ready to build something amazing?</h2>
+          <p class="lead" style="margin-inline: auto;">Let's talk about your project. A quick call to understand your goals, timeline, and scope is the first step.</p>
+          <div class="cta__actions">
+            <a href="contact.html" class="btn btn--lg">Start a Project</a>
+            <a href="mailto:hello@bazarside.com" class="btn btn--lg btn--ghost">hello@bazarside.com</a>
+          </div>
+          <div class="cta__note">
+            Typical response time: 24 hours. Let's create something great together.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="logo">
+            <div class="logo__mark" style="width: 28px; height: 28px;">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 4h12M4 10h16M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <span>Bazar<em>Side</em></span>
+          </div>
+          <p>Bespoke digital experiences for ambitious brands. Web design, ecommerce, and development that drives growth.</p>
+          <div class="socials">
+            <a href="https://twitter.com" aria-label="Twitter" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com" aria-label="LinkedIn" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://github.com/bazarside" aria-label="GitHub" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#work">Portfolio</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#pricing">How We Engage</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#work">Our Work</a></li>
+            <li><a href="contact.html">Start a Project</a></li>
+            <li><a href="mailto:hello@bazarside.com">hello@bazarside.com</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://github.com/bazarside" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://twitter.com" rel="noopener">Twitter / X</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 BazarSide. All rights reserved.</span>
+        <span>Crafted with care in <span style="text-decoration: underline; text-underline-offset: 3px;">San Francisco</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
 </html>
